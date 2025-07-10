@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ: Lê Quang Dũng - The Architect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="index.html#home" class="nav-logo">
+                <img src="images/trang-code-logo.png" alt="Trang Code logo">
+            </a>
+            <ul class="nav-menu"><li><a href="index.html#values">Giá Trị</a></li><li><a href="index.html#community">Cộng Đồng</a></li><li><a href="index.html#team">Con Người</a></li><li><a href="index.html#contact">Kết Nối</a></li></ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container detail-page-content">
+            <header class="detail-page-header">
+                <h1>Lê Quang Dũng</h1>
+                <p class="subtitle">-The Architect-</p>
+                <figure>
+                    <img src="images/member-le-quang-dung.jpg" alt="Chân dung Lê Quang Dũng" class="detail-inline-image">
+                    <figcaption>"Biến ý tưởng phức tạp thành sản phẩm đơn giản, hữu ích."</figcaption>
+                </figure>
+            </header>
+
+            <div class="detail-content-grid">
+                <div class="main-content">
+                    <!--<h1>Lê Quang Dũng</h1>-->
+                    <!--<p class="subtitle">The Architect</p>-->
+
+                    <h2>Câu Chuyện & Đam Mê</h2>
+                    <p>Với vai trò là "kiến trúc sư trưởng" của nhóm, Dũng có một khả năng đặc biệt trong việc nhìn ra bức tranh toàn cảnh của một dự án công nghệ. Niềm đam mê lập trình của anh bắt đầu từ năm 15 tuổi với một trò chơi పాము săn mồi đơn giản tự viết bằng Pascal. Kể từ đó, anh luôn bị cuốn hút bởi việc xây dựng những hệ thống có logic phức tạp, mạnh mẽ và hiệu quả.</p>
+                    <p>Dũng tin rằng code không chỉ là những dòng lệnh khô khan, mà là nghệ thuật của việc giải quyết vấn đề. Anh không bao giờ hài lòng với một giải pháp "chạy được", mà luôn tìm cách để nó "chạy tốt nhất". Anh dành nhiều thời gian để nghiên cứu các kiến trúc phần mềm mới như Microservices, tối ưu hóa truy vấn cơ sở dữ liệu, và đảm bảo sản phẩm cuối cùng không chỉ hoạt động tốt mà còn phải dễ dàng bảo trì và mở rộng trong tương lai.</p>
+                    <blockquote>"Thử thách lớn nhất không phải là viết code cho máy hiểu, mà là viết code cho một lập trình viên khác trong 6 tháng sau đọc lại vẫn hiểu."<cite>- Lê Quang Dũng</cite></blockquote>
+                </div>
+                <aside class="sidebar-content">
+                    <h3>Thành Tựu & Kỹ Năng</h3>
+                    <ul>
+                        <li><strong>Giải Nhất:</strong> BTEC FPT Hackathon 2024 với dự án "AI-powered note-taking app".</li>
+                        <li><strong>Thành Tựu:</strong> Là Core Contributor cho thư viện mã nguồn mở "VN-Toolkit" trên GitHub.</li>
+                        <li><strong>Ngôn ngữ & Framework:</strong> JavaScript (React, Node.js), Python, Golang.</li>
+                        <li><strong>Cơ sở dữ liệu:</strong> PostgreSQL, MongoDB, Redis.</li>
+                        <li><strong>Chuyên môn:</strong> Thiết kế hệ thống (System Design), API, DevOps.</li>
+                    </ul>
+                    <a href="index.html#team" class="btn-secondary">Gặp gỡ đội ngũ</a>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>"Gửi trao thông điệp, kết tinh tri âm"</h2>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Gửi Lời Nhắn Cho Chúng Tôi</h3>
+                    <form id="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+                        <div class="form-group"><input type="text" name="name" placeholder="Tên của bạn" required></div>
+                        <div class="form-group"><input type="email" name="email" placeholder="Email của bạn" required></div>
+                        <div class="form-group"><textarea name="message" rows="4" placeholder="Lời nhắn của bạn..." required></textarea></div>
+                        <button type="submit" class="btn-submit">Gửi Thông Điệp</button>
+                        <p class="form-status"></p>
+                    </form>
+                </div>
+                <div class="footer-column">
+                    <h3>Ngàn Phương Hội Tụ</h3>
+                    <p>Đăng ký để không bỏ lỡ những câu chuyện và sự kiện sắp tới từ chúng tôi và cộng đồng BTEC.</p>
+                    <form id="newsletter-form">
+                        <div class="form-group-inline">
+                            <input type="email" placeholder="Nhập email của bạn" required>
+                            <button type="submit" aria-label="Đăng ký">→</button>
+                        </div>
+                        <p class="form-status-newsletter"></p>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Group of Explorers. Một sản phẩm cho Trạng Code 2025.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

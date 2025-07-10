@@ -1,0 +1,446 @@
+/* === NỀN TẢNG & BIẾN TOÀN CỤC === */
+/* === NỀN TẢNG & BIẾN TOÀN CỤC (GIAO DIỆN MỚI - FOOTER ĐEN) === */
+:root {
+    --primary-color: #c0392b;   /* Xanh dương đậm, chuyên nghiệp */
+    --secondary-color: #f60;    /* Cam FPT đặc trưng */
+    
+    /* ===== ĐÃ THAY ĐỔI DÒNG NÀY ===== */
+    --dark-color: #212529;          /* Màu đen tuyền */
+
+    --light-color: #fffdfd;     /* Màu nền section sáng, sạch sẽ, hiện đại */
+    --text-color: #343a40;      /* Màu chữ chính, dễ đọc */
+
+    /* FONT CHỮ GIỮ NGUYÊN */
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Roboto', sans-serif;
+    --navbar-height: 70px;
+}
+
+/* === CÀI ĐẶT CHUNG === */
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-body);
+    line-height: 1.75;
+    margin: 0;
+    padding-top: var(--navbar-height);
+    color: var(--text-color);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+}
+body.nav-open { overflow: hidden; }
+.container { max-width: 1100px; margin: auto; padding: 0 2rem; }
+.section { padding: 5rem 0; overflow: hidden; }
+.bg-light { background: var(--light-color); }
+
+/* === PHÂN CẤP CHỮ === */
+h1, h2, h3, h4, .nav-logo { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; }
+.hero h1 { font-size: 3.5rem; color: #fff; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); text-align: center; }
+h2 { font-size: 2.75rem; font-style: italic; margin-bottom: 1rem; color: var(--primary-color); text-align: center;}
+h2::after { content: ''; display: block; width: 80px; height: 3px; background-color: var(--secondary-color); margin: 1.5rem auto 2.5rem; }
+h3 { font-size: 1.5rem; color: var(--dark-color); margin-bottom: 1rem; }
+p { margin-bottom: 1rem; max-width: 70ch; }
+.container > p { text-align: center; margin-left: auto; margin-right: auto; }
+
+/* === THANH ĐIỀU HƯỚNG === */
+.navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; height: var(--navbar-height); background-color: transparent; transition: background-color 0.4s ease, box-shadow 0.4s ease; }
+/*.navbar.scrolled { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }*/
+.navbar.scrolled { background-color: rgba(248, 249, 250, 0.95); /* Màu xám rất nhạt, mờ */ backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+.nav-logo { font-size: 1.5rem; text-decoration: none; transition: color 0.3s ease; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+.navbar.scrolled .nav-logo { color: var(--primary-color); text-shadow: none; }
+.nav-menu { list-style: none; display: flex; align-items: center; gap: 2rem; margin: 0; padding: 0; }
+.nav-menu a { text-decoration: none; font-weight: 500; position: relative; padding: 5px 0; transition: color 0.3s ease; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+.navbar.scrolled .nav-menu a { color: var(--text-color); text-shadow: none; }
+.nav-menu a:hover { color: var(--primary-color); }
+.nav-menu a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--secondary-color); transition: width 0.3s ease; }
+.nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+
+/* === MENU DI ĐỘNG === */
+.nav-toggle { display: none; background: transparent; border: none; cursor: pointer; z-index: 1001; }
+.hamburger { display: block; position: relative; width: 24px; height: 2px; background-color: white; transition: background-color 0.3s 0.1s ease; }
+.navbar.scrolled .hamburger, body.nav-open .hamburger { background-color: var(--dark-color); }
+.hamburger::before, .hamburger::after { content: ''; position: absolute; width: 24px; height: 2px; background-color: white; left: 0; transition: transform 0.3s ease, top 0.3s 0.1s ease; }
+.navbar.scrolled .hamburger::before, .navbar.scrolled .hamburger::after, body.nav-open .hamburger::before, body.nav-open .hamburger::after { background-color: var(--dark-color); }
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+body.nav-open .hamburger { background-color: transparent !important; }
+body.nav-open .hamburger::before { top: 0; transform: rotate(45deg); }
+body.nav-open .hamburger::after { top: 0; transform: rotate(-45deg); }
+
+/* === HERO BANNER === */
+.hero { 
+    position: relative; 
+    height: calc(100vh - var(--navbar-height)); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+.hero::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    /* THAY ĐỔI DUY NHẤT LÀ Ở ĐÂY */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/anh-nen-moi-cua-ban.jpg') no-repeat center center/cover; 
+    z-index: -1; 
+    /*animation: kenburns 20s infinite;*/
+}
+@keyframes kenburns { 
+    0%, 100% { transform: scale(1) rotate(0deg); } 
+    50% { transform: scale(1.1) rotate(1deg); } 
+}
+.hero .subtitle { 
+    color: #fff; 
+    font-size: 1.25rem; 
+    max-width: 60ch; 
+    text-align: center; 
+}
+.scroll-down-arrow { 
+    position: absolute; 
+    bottom: 30px; 
+    color: #fff; 
+    animation: bounce 2s infinite; 
+}
+@keyframes bounce { 
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 
+    40% { transform: translateY(-15px); } 
+    60% { transform: translateY(-8px); } 
+}
+
+/* === CÁC LOẠI NÚT === */
+.btn-primary { background-color: var(--secondary-color); color: var(--dark-color); padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; display: inline-block; margin-top: 1.5rem; }
+.btn-primary:hover { background-color: #ffc107; transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+.btn-secondary { background: transparent; color: var(--primary-color); border: 2px solid var(--secondary-color); padding: 0.6rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 1rem; transition: all 0.3s ease; }
+.btn-secondary:hover { background: var(--secondary-color); color: var(--dark-color); transform: translateY(-2px); }
+
+/* === SECTION: VALUES === */
+.values-content { display: flex; align-items: center; gap: 3rem; text-align: left; }
+.quote-block { position: relative; padding-left: 3rem; border-left: 4px solid var(--secondary-color); }
+.quote-block::before { content: '“'; position: absolute; left: -0.5rem; top: -1.5rem; font-size: 6rem; color: var(--secondary-color); opacity: 0.2; font-family: serif; }
+.values-content .text-content, .values-content .image-content { flex: 1; }
+.values-content .image-content img { max-width: 100%; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+/* === SECTION: COMMUNITY === */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.gallery-item-link { display: block; text-decoration: none; color: inherit; border-radius: 8px; overflow: hidden; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.gallery-item-link:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
+.gallery-item img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease-in-out; }
+.gallery-item-link:hover img { transform: scale(1.1); }
+.gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff; padding: 2rem 1rem 1rem; transform: translateY(100%); transition: transform 0.4s ease-in-out; text-align: center;}
+.gallery-item-link:hover .gallery-overlay { transform: translateY(0); }
+.gallery-overlay h4 { margin: 0; color: #fff; }
+
+/* === SECTION: TEAM === */
+.team-container { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 4rem; }
+.team-member-link { display: block; text-decoration: none; color: inherit; }
+.team-member { background: #fff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.07); width: 280px; padding: 2rem 1.5rem; transition: transform 0.4s ease, box-shadow 0.4s ease; text-align: center; }
+.team-member-link:hover .team-member { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+.team-member img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 5px solid #fff; box-shadow: 0 0 0 3px var(--secondary-color); margin-top: -4.5rem; }
+.team-member h3 { margin-top: 1rem; margin-bottom: 0.5rem; color: var(--primary-color); }
+.team-member p { font-style: italic; color: #777; font-size: 0.9rem; min-height: 50px; }
+
+/* === FOOTER === */
+footer { background: var(--dark-color); color: rgba(255, 255, 255, 0.7); padding: 5rem 0 2rem; text-align: left; }
+footer h2::after { margin-left: auto; margin-right: auto; }
+footer h3 { color: var(--secondary-color); }
+.footer-content { display: flex; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; }
+.footer-column { flex: 1; min-width: 300px; }
+.footer-bottom { text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9rem; color: rgba(255, 255, 255, 0.5); }
+
+/* === FORM STYLES === */
+.form-group, .form-group-inline { margin-bottom: 1.5rem; }
+input, textarea { box-sizing: border-box; width: 100%; padding: 0.8rem 1rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: #fff; font-family: var(--font-body); }
+input:focus, textarea:focus { outline: none; border-color: var(--secondary-color); }
+.btn-submit { width: 100%; background-color: var(--primary-color); color: #fff; border: none; padding: 0.8rem 2rem; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background-color 0.3s ease; }
+.btn-submit:hover { background-color: #c0392b; }
+.form-group-inline { display: flex; }
+.form-group-inline input { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.form-group-inline button { background: var(--secondary-color); color: var(--dark-color); border: none; padding: 0.8rem 1.2rem; border-top-right-radius: 6px; border-bottom-right-radius: 6px; cursor: pointer; font-size: 1.2rem; }
+.form-status, .form-status-newsletter { margin-top: 1rem; min-height: 1.2em; }
+
+/* === MODAL & BACK-TO-TOP === */
+.modal-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; display: flex; justify-content: center; align-items: center; padding: 1rem; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+.modal-container.active { opacity: 1; visibility: visible; }
+.modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); }
+.modal-content { position: relative; background: #fff; padding: 2.5rem; border-radius: 12px; width: 100%; max-width: 650px; z-index: 2001; transform: scale(0.95); transition: transform 0.3s ease; text-align: left; }
+.modal-container.active .modal-content { transform: scale(1); }
+.modal-close-btn { position: absolute; top: 10px; right: 15px; background: transparent; border: none; font-size: 2rem; color: #aaa; cursor: pointer; }
+#modal-details-content h3 { margin-top: 0; }
+.back-to-top-btn { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background-color: var(--primary-color); color: white; border: none; border-radius: 50%; font-size: 24px; cursor: pointer; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s ease; z-index: 999; }
+.back-to-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+
+/* === HIỆU ỨNG KHI CUỘN === */
+.section, .gallery-item-link, .team-member-link { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.section.visible, .gallery-item-link.visible, .team-member-link.visible { opacity: 1; transform: translateY(0); }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
+    :root { --navbar-height: 60px; }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2.2rem; }
+    .nav-toggle { display: flex; }
+    .nav-menu { position: fixed; top: 0; right: 0; width: 80%; max-width: 320px; height: 100vh; background: var(--light-color); flex-direction: column; justify-content: center; gap: 2.5rem; transform: translateX(100%); transition: transform 0.4s ease; }
+    body.nav-open .nav-menu { transform: translateX(0); }
+    .nav-menu a { color: var(--text-color) !important; text-shadow: none !important; font-size: 1.2rem; }
+    .values-content { flex-direction: column; text-align: center; }
+    .quote-block { border-left: none; border-top: 4px solid var(--secondary-color); padding-left: 0; padding-top: 2rem; }
+    .quote-block::before { left: 50%; transform: translateX(-50%); top: -1rem; }
+    .footer-content { gap: 3rem; }
+}
+
+/* === STYLING CHO CÁC TRANG CHI TIẾT === */
+.detail-hero {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+    text-align: center;
+}
+
+.detail-hero-image {
+    max-width: 100%;
+    width: 900px;
+    margin-top: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.detail-hero h1 {
+    color: var(--primary-color); /* Dùng màu đỏ đã định nghĩa trong :root */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-size: 3.5rem;
+}
+
+.detail-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    text-align: left;
+}
+
+.detail-content .main-content h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+.detail-content .main-content h2::after {
+    margin: 1.5rem 0 2rem; /* Căn lề trái */
+}
+
+.detail-content blockquote {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+}
+.detail-content blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.detail-content .sidebar-content {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    height: fit-content;
+}
+.detail-content .sidebar-content h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+.detail-content .sidebar-content ul {
+    list-style-type: '✔ ';
+    padding-left: 1.2rem;
+}
+.detail-content .sidebar-content li {
+    margin-bottom: 0.75rem;
+}
+.detail-content .sidebar-content .btn-secondary {
+    width: 100%;
+    text-align: center;
+}
+
+/* Responsive cho trang chi tiết */
+@media (max-width: 992px) {
+    .detail-content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+/* === STYLING CHO CÁC KHỐI NỘI DUNG DẠNG BÀI VIẾT (ARTICLE) === */
+.article-content {
+    max-width: 800px;
+    margin: 0 auto; /* Căn giữa khối nội dung */
+    text-align: left; /* Chữ bên trong căn trái */
+}
+
+.article-content h3 {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+    display: inline-block;
+}
+
+.article-content p {
+    text-align: justify; /* Căn đều 2 bên cho các đoạn văn dài */
+}
+
+/* === STYLING CHO CÁC KHỐI ĐẶC ĐIỂM NỔI BẬT === */
+/* BTEC FPT */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cột trên màn hình lớn */
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+.feature-item .feature-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.feature-item p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* Responsive cho lưới đặc điểm */
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr; /* 1 cột trên màn hình nhỏ */
+    }
+}
+
+/* === STYLING CHO SECTION THÔNG TIN LIÊN HỆ CHI TIẾT === */
+#detailed-contact {
+    background-color: #fff; /* Nền trắng để nổi bật */
+}
+
+.contact-intro {
+    max-width: 70ch;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+    margin-top: -1.5rem; /* Kéo lên gần H2 hơn */
+}
+
+.contact-details-grid {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Khoảng cách giữa các mục (Địa chỉ, Email, Hotline) */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.contact-item .contact-icon {
+    color: var(--secondary-color); /* Màu cam FPT */
+    flex-shrink: 0;
+    margin-top: 5px; /* Căn chỉnh icon cho đẹp hơn */
+}
+.contact-item .contact-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.contact-item .contact-info {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.contact-item .contact-info h3 {
+    display: inline-block;
+    width: 90px; /* Độ rộng cố định cho các nhãn (Address, Email...) */
+    margin: 0;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.contact-item .contact-info ul {
+    display: inline-block;
+    vertical-align: top;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-item .contact-info li {
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.contact-item .contact-info li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #555;
+}
+
+.contact-item .contact-info a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+.contact-item .contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-item .contact-info .hotline-number {
+    display: inline-block;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* === STYLE CHO LOGO TRONG NAVBAR === */
+.nav-logo img {
+    height: 60px; /* Điều chỉnh chiều cao của logo ở đây */
+    display: block; /* Giúp loại bỏ các khoảng trống không mong muốn */
+    transition: filter 0.3s ease;
+}
+
+/* Hiệu ứng làm sáng logo trên nền trong suốt ở đầu trang */
+.navbar:not(.scrolled) .nav-logo img {
+    /* filter: brightness(0) invert(1); */ /* Dùng dòng này nếu logo của bạn màu đen và muốn chuyển thành trắng */
+    /* Nếu logo của bạn đã có màu sáng sẵn thì không cần dòng trên */
+}
+
+.detail-page-content h1,
+.detail-hero h1 {
+    color: var(--primary-color) !important; /* Dùng màu đỏ và !important để ưu tiên tuyệt đối */
+}
