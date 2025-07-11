@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ: Trần Thị Nhung - The UX Artisan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="index.html#home" class="nav-logo">
+                <img src="images/trang-code-logo.png" alt="Trang Code logo">
+            </a>
+            <ul class="nav-menu"><li><a href="index.html#values">Giá Trị</a></li><li><a href="index.html#community">Cộng Đồng</a></li><li><a href="index.html#team">Con Người</a></li><li><a href="index.html#contact">Kết Nối</a></li></ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container detail-page-content">
+            <header class="detail-page-header">
+                <h1>Trần Thị Nhung</h1>
+                <p class="subtitle">-The UX Artisan-</p>
+                <figure>
+                    <img src="images/member-tran-thi-nhung.jpg" alt="Chân dung Trần Thị Nhung" class="detail-inline-image">
+                    <figcaption>"Mỗi dòng code đều có thể mang lại một trải nghiệm tuyệt vời."</figcaption>
+                </figure>
+            </header>
+                    
+            <div class="detail-content-grid">
+                <div class="main-content">
+                    <!--<h1>Trần Thị Nhung</h1>-->
+                    <!--<p class="subtitle">The UX Artisan</p>-->
+
+                    <h2>Câu Chuyện & Đam Mê</h2>
+                    <p>Nhung là "nghệ nhân" của nhóm, người bắc cây cầu quan trọng nhất giữa công nghệ và con người. Cô có một sự nhạy cảm đặc biệt với thẩm mỹ và sự đồng cảm sâu sắc với người dùng. Đối với Nhung, một giao diện đẹp là chưa đủ, nó phải trực quan, dễ sử dụng và quan trọng nhất là phải giải quyết được đúng vấn đề của người dùng.</p>
+                    <p>Cô luôn bắt đầu công việc của mình bằng việc xây dựng chân dung người dùng (User Persona) và bản đồ hành trình (Journey Map). Cô dành nhiều thời gian để phác thảo trên giấy, tạo wireframe, prototype trên Figma và thực hiện các buổi kiểm thử khả dụng (Usability Testing) để xem người dùng tương tác với sản phẩm như thế nào. Chính sự tỉ mỉ đó đã tạo nên "linh hồn" cho các sản phẩm của nhóm.</p>
+                    <blockquote>"Thiết kế tốt là khi sản phẩm trở nên vô hình, người dùng chỉ tập trung vào việc hoàn thành mục tiêu của họ một cách tự nhiên và vui vẻ."<cite>- Trần Thị Nhung</cite></blockquote>
+                </div>
+                <aside class="sidebar-content">
+                    <h3>Thành Tựu & Kỹ Năng</h3>
+                    <ul>
+                        <li><strong>Giải Nhất:</strong> Cuộc thi Thiết kế Giao diện Ứng dụng Quốc gia 2024.</li>
+                        <li><strong>Chứng chỉ:</strong> Google UX Design Professional Certificate, hoàn thành 7/7 khóa học.</li>
+                        <li><strong>Công cụ:</strong> Figma, Adobe XD, Sketch, Webflow.</li>
+                        <li><strong>Kỹ năng cứng:</strong> Wireframing, Prototyping, Usability Testing.</li>
+                        <li><strong>Chuyên môn:</strong> Thiết kế hướng đến người dùng, Thiết kế hệ thống (Design System), Web Accessibility (WCAG).</li>
+                    </ul>
+                    <a href="index.html#team" class="btn-secondary">Gặp gỡ đội ngũ</a>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>"Gửi trao thông điệp, kết tinh tri âm"</h2>
+            <div class="footer-content">
+                <div class="footer-column">
+                <h3>Gửi Lời Nhắn Cho Chúng Tôi</h3>
+                    <form id="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+                        <div class="form-group"><input type="text" name="name" placeholder="Tên của bạn" required></div>
+                        <div class="form-group"><input type="email" name="email" placeholder="Email của bạn" required></div>
+                        <div class="form-group"><textarea name="message" rows="4" placeholder="Lời nhắn của bạn..." required></textarea></div>
+                        <button type="submit" class="btn-submit">Gửi Thông Điệp</button>
+                        <p class="form-status"></p>
+                    </form>
+                </div>
+                <div class="footer-column">
+                    <h3>Ngàn Phương Hội Tụ</h3>
+                    <p>Đăng ký để không bỏ lỡ những câu chuyện và sự kiện sắp tới từ chúng tôi và cộng đồng BTEC.</p>
+                    <form id="newsletter-form">
+                        <div class="form-group-inline">
+                            <input type="email" placeholder="Nhập email của bạn" required>
+                            <button type="submit" aria-label="Đăng ký">→</button>
+                        </div>
+                        <p class="form-status-newsletter"></p>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Group of Explorers. Một sản phẩm cho Trạng Code 2025.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
